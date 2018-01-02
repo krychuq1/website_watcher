@@ -5,7 +5,7 @@ let swaggerConfig = {
                 version: '1.0.0',
                 description: 'Node service which provides content for White Labels'
         },
-        basePath: '/api/',
+        basePath: '/',
             host: '',
             schemes: ['http'],
             produces: ['application/json'],
