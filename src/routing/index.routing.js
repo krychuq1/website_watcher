@@ -1,4 +1,7 @@
-import viewRouter from './view';
+import usersRouter from './users.routing';
+import swaggerRoute from './swagger.routes';
+
 export {
-    viewRouter
+    usersRouter,
+    swaggerRoute
 }
