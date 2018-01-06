@@ -7,20 +7,22 @@ class UserModel{
         this.mongoose = db.getMongoose();
         this.Schema = this.mongoose.Schema;
         this.createSchema();
-        this.brandModel = this.mongoose.model('brand', this.brandSchema);
+        this.userModel = this.mongoose.model('user', this.userSchema);
     }
 
     createSchema(){
-        this.brandSchema = new this.Schema({
-            id: '',
-            starTime: {
-                type: Data
+        this.userSchema = new this.Schema({
+            ip: {
+                type: String
+            },
+            city: {
+                type: String
             }
         }, {versionKey: false})
     }
 
 }
 
-const userModel =  new UserModel().brandModel;
+const userModel =  new UserModel().userModel;
 
 export default userModel;
