@@ -11,6 +11,9 @@ class UserController{
     getAllUsers(){
         return UserModel.find();
     }
+    addEndTime(id, time){
+        return UserModel.update({_id: id}, {$set: {endTime: time}}).exec();
+    }
 }
 const  userController = new UserController();
 export default userController;

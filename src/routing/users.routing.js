@@ -14,6 +14,16 @@ import UserController from '../controller/userController';
  *              type: string
  *          city:
  *              type: string
+ *          location:
+ *              type: string
+ *          organization:
+ *              type: string
+ *          region:
+ *              type: string
+ *          startTime:
+ *              type: string
+ *          endTime:
+ *              type: string
  *
  */
 
@@ -79,5 +89,31 @@ usersRouter.post('/', (req, res) => {
     });
 });
 
+/**
+ * @swagger
+ * /users/{id}/{endtime}:
+ *  put:
+ *      tags:
+ *      - user
+ *      summary: update user
+ *      description: this call will update user with endTime.
+ *      parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *      - in: path
+ *        name: endtime
+ *        schema:
+ *          type: string
+        responses:
+ *          200:
+ *              description: ok
+ */
+usersRouter.put('/:id/:endtime', (req, res) => {
+    UserController.addEndTime(req.params.id, req.params.endtime).then(updated => {
+        res.send(updated);
+    });
+});
 
 export default usersRouter;

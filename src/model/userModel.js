@@ -17,7 +17,23 @@ class UserModel{
             },
             city: {
                 type: String
+            },
+            location: {
+                type: String
+            },
+            organization: {
+                type: String
+            },
+            region: {
+                type: String
+            },
+            startTime: {
+                type: Date
+            },
+            endTime: {
+                type: Date
             }
+
         }, {versionKey: false})
     }
 

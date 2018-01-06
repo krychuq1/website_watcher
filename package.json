@@ -24,13 +24,14 @@
   },
   "homepage": "https://github.com/krychuq1/node_mongo#readme",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
     "express": "^4.16.2",
     "mongodb": "^2.2.33",
+    "mongoose": "^4.13.2",
     "nodemon": "^1.12.1",
     "swagger-jsdoc": "^1.9.7",
-    "mongoose": "^4.13.2",
-    "bluebird": "^3.5.1",
     "swagger-ui-express": "^2.0.11"
   },
   "devDependencies": {
