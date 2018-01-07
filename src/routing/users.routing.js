@@ -116,4 +116,26 @@ usersRouter.put('/:id/:endtime', (req, res) => {
     });
 });
 
+/**
+ * @swagger
+ * /users/{ip}:
+ *  delete:
+ *      tags:
+ *      - user
+ *      summary: delete user based on ip
+ *      description: this call will delete user based on ip
+ *      parameters:
+ *      - in: path
+ *        name: ip
+ *        schema:
+ *          type: string
+ *      responses:
+ *          200:
+ *              description: ok
+ */
+usersRouter.delete('/:ip', (req, res) => {
+    UserController.deleteUserByIp(req.params.ip).then(response => {
+        res.send(response);
+    })
+});
 export default usersRouter;

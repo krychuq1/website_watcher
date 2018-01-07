@@ -14,6 +14,9 @@ class UserController{
     addEndTime(id, time){
         return UserModel.update({_id: id}, {$set: {endTime: time}}).exec();
     }
+    deleteUserByIp(ip){
+        return UserModel.findOneAndRemove({ip: ip});
+    }
 }
 const  userController = new UserController();
 export default userController;
