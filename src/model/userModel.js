@@ -27,8 +27,9 @@ class UserModel{
             region: {
                 type: String
             },
+            //startTime (session_time) is index unique -- what if multiple users start session in the same time. should we make it unique?
             startTime: {
-                type: Date
+                type: Date, index: true
             },
             endTime: {
                 type: Date
