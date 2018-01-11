@@ -12,6 +12,8 @@ import UserController from '../controller/userController';
  *      properties:
  *          ip:
  *              type: string
+ *          userMySqlIp:
+ *              type: string
  *          city:
  *              type: string
  *          location:

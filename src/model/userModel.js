@@ -15,6 +15,9 @@ class UserModel{
             ip: {
                 type: String
             },
+            userMySqlIp: {
+                type: String
+            },
             city: {
                 type: String
             },
