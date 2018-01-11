@@ -1,22 +1,20 @@
 import EventsController from "../controller/eventController";
 import express from "express";
-import usersRouter from "./users.routing";
-import UserController from "../controller/userController";
 
 /**
  * @swagger
  * definitions:
+ *
  *  Event:
  *      type: object
  *      required:
  *      - id
- *      - location
+ *      - startTime
  *      properties:
  *          id:
  *              type: string
- *          location:
- *              type: array
- *              items: string
+ *          startTime:
+ *              type: string
  *
  */
 let eventsRouter = express.Router();
@@ -32,14 +30,42 @@ let eventsRouter = express.Router();
  *          200:
  *              description: ok
  */
-usersRouter.get('/', (req, res) => {
-    EventsController.getAllEvents().then(events => {
+eventsRouter.get('/', (req, res) => {
+    EventsController.getEvents().then(events => {
         res.json(events);
     });
 });
 
-
 /**
+ * @swagger
+ * /events:
+ *  post:
+ *      tags:
+ *      - event
+ *      summary: add event time and date
+ *      description: add event time and date of create new event
+ *      parameters:
+ *      - in: body
+ *        name: event
+ *        schema:
+ *          $ref: '#/definitions/Event'
+ *      responses:
+ *          200:
+ *              description: ok
+ */
+
+eventsRouter.post('/', (req, res) => {
+    EventsController.addEvent(req).then(response => {
+        res.json(response);
+    });
+});
+
+
+
+
+/*
+// trial
+/!**
  * @swagger
  * /events/{id}/{coordinates}:
  *  post:
@@ -60,14 +86,12 @@ usersRouter.get('/', (req, res) => {
  *      responses:
  *          200:
  *              description: ok
- */
+ *!/
 eventsRouter.post('/:id/:coordinates', (req, res) => {
     console.log('Parameter is: ', req.params.id, 'Location is: ', req.params.coordinates);
     EventsController.addEvent(req.params.id, req.params.coordinates).then(response => {
         res.json(response);
     });
-});
-
-
+});*/
 
 export default eventsRouter;

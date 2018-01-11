@@ -27,8 +27,6 @@ import UserController from '../controller/userController';
  *
  */
 
-
-
 let usersRouter = express.Router();
 
 /**

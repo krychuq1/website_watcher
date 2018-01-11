@@ -15,10 +15,13 @@ class EventModel{
             id: {
                 type: String
             },
-            location:{
+            startTime: {
+                type: String
+            }
+           /* location:{
                 type: [Number],  // [<longitude>, <latitude>]
                 index: '2d'      // create the geospatial index
-            }
+            }*/
 
         }, {versionKey: false})
     }
