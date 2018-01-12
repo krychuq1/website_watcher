@@ -12,6 +12,8 @@ import UserController from '../controller/userController';
  *      properties:
  *          ip:
  *              type: string
+ *          userMySqlIp:
+ *              type: string
  *          city:
  *              type: string
  *          location:
@@ -26,8 +28,6 @@ import UserController from '../controller/userController';
  *              type: string
  *
  */
-
-
 
 let usersRouter = express.Router();
 
