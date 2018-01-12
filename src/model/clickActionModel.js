@@ -1,17 +1,17 @@
 import db from '../database/databaseConnection';
 
 
-class EventModel{
+class ClickActionModel{
 
     constructor(){
         this.mongoose = db.getMongoose();
         this.Schema = this.mongoose.Schema;
         this.createSchema();
-        this.eventModel = this.mongoose.model('event', this.eventSchema);
+        this.clickActionModel = this.mongoose.model('event', this.clickActionSchema);
     }
 
     createSchema(){
-        this.eventSchema = new this.Schema({
+        this.clickActionSchema = new this.Schema({
             id: {
                 type: String
             },
@@ -28,5 +28,5 @@ class EventModel{
 
 }
 
-const eventModel =  new EventModel().eventModel;
-export default eventModel;
+const clickActionModel =  new ClickActionModel().clickActionModel;
+export default clickActionModel;

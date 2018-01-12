@@ -1,9 +1,9 @@
 import usersRouter from './users.routing';
 import swaggerRoute from './swagger.routes';
-import eventsRouter from './event.routing';
+import clickActionRoute from './clickAction.routing';
 
 export {
     usersRouter,
-    eventsRouter,
+    clickActionRoute,
     swaggerRoute
 }

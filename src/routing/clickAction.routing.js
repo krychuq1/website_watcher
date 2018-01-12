@@ -1,11 +1,11 @@
-import EventsController from "../controller/eventController";
+import ClickActionController from "../controller/clickActionController";
 import express from "express";
 
 /**
  * @swagger
  * definitions:
  *
- *  Event:
+ *  Action:
  *      type: object
  *      required:
  *      - id
@@ -20,10 +20,10 @@ import express from "express";
 let eventsRouter = express.Router();
 /**
  * @swagger
- * /events:
+ * /actions:
  *  get:
  *      tags:
- *      - event
+ *      - create_event
  *      summary: get all events
  *      description: call to retrieve all users
  *      responses:
@@ -31,31 +31,31 @@ let eventsRouter = express.Router();
  *              description: ok
  */
 eventsRouter.get('/', (req, res) => {
-    EventsController.getEvents().then(events => {
+    ClickActionController.getAction().then(events => {
         res.json(events);
     });
 });
 
 /**
  * @swagger
- * /events:
+ * /actions:
  *  post:
  *      tags:
- *      - event
+ *      - create_event
  *      summary: add event time and date
  *      description: add event time and date of create new event
  *      parameters:
  *      - in: body
  *        name: event
  *        schema:
- *          $ref: '#/definitions/Event'
+ *          $ref: '#/definitions/Action'
  *      responses:
  *          200:
  *              description: ok
  */
 
 eventsRouter.post('/', (req, res) => {
-    EventsController.addEvent(req).then(response => {
+    ClickActionController.addAction(req).then(response => {
         res.json(response);
     });
 });
