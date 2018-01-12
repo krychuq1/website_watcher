@@ -30,6 +30,7 @@
     "express": "^4.16.2",
     "mongodb": "^2.2.33",
     "mongoose": "^4.13.2",
+    "mongoose-geojson-schema": "^2.1.2",
     "nodemon": "^1.12.1",
     "swagger-jsdoc": "^1.9.7",
     "swagger-ui-express": "^2.0.11"
