@@ -14,7 +14,6 @@ class ClickActionController{
     getUsersWithActions(){
         return ClickActionModel.find().populate('users').exec(function (err, action) {
             if (err) return handleError(err);
-            console.log('The action user_id is %s', action.user_id);
         });
     }
 }
