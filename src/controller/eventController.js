@@ -20,6 +20,9 @@ class EventController{
     getAllEvents(){
         return EventModel.find();
     }
+    deleteAllEvents(){
+        return EventModel.remove();
+    }
     deleteEventByEventId(id){
         return EventModel.findOneAndRemove({eventId: id});
     }

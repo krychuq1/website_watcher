@@ -118,6 +118,23 @@ usersRouter.put('/:id/:endtime', (req, res) => {
 
 /**
  * @swagger
+ * /users:
+ *  delete:
+ *      tags:
+ *      - user
+ *      summary: delete all users
+ *      description: delete all users
+ *      responses:
+ *          200:
+ *              description: ok
+ */
+usersRouter.delete('/', (req, res) => {
+   UserController.deleteAllUsers().then(deleted => {
+       res.json(deleted);
+   })
+});
+/**
+ * @swagger
  * /users/{ip}:
  *  delete:
  *      tags:

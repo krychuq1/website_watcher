@@ -66,6 +66,23 @@ eventRouter.post('/', (req, res) => {
 
 /**
  * @swagger
+ * /events:
+ *  delete:
+ *      tags:
+ *      - event
+ *      summary: delete all of the events
+ *      description: delete event based on eventId
+ *      responses:
+ *          200:
+ *              description: ok
+ */
+eventRouter.delete('/', (req, res) => {
+    EventController.deleteAllEvents().then(deleted => {
+        res.json(deleted);
+    })
+});
+/**
+ * @swagger
  * /events/{id}:
  *  delete:
  *      tags:
