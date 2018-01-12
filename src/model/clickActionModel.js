@@ -7,7 +7,7 @@ class ClickActionModel{
         this.mongoose = db.getMongoose();
         this.Schema = this.mongoose.Schema;
         this.createSchema();
-        this.clickActionModel = this.mongoose.model('event', this.clickActionSchema);
+        this.clickActionModel = this.mongoose.model('clickAction', this.clickActionSchema);
     }
 
     createSchema(){
@@ -18,7 +18,11 @@ class ClickActionModel{
             user_id: {
                 type: String
             },
+            action_name: {
+                type: String
+            },
             startTime: {
+
                 type: String
             }
 

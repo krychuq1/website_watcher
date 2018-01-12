@@ -9,30 +9,36 @@ import express from "express";
  *      type: object
  *      required:
  *      - id
+ *      - user_id
+ *      - action_name
  *      - startTime
  *      properties:
  *          id:
+ *              type: string
+ *          user_id:
+ *              type: string
+ *          action_name:
  *              type: string
  *          startTime:
  *              type: string
  *
  */
-let eventsRouter = express.Router();
+let clickActionRouter = express.Router();
 /**
  * @swagger
  * /actions:
  *  get:
  *      tags:
- *      - create_event
- *      summary: get all events
- *      description: call to retrieve all log data of create-event action
+ *      - admin-portal
+ *      summary: retrieve all admin-portal actions
+ *      description: call to retrieve all log data of admin-portal action
  *      responses:
  *          200:
  *              description: ok
  */
-eventsRouter.get('/', (req, res) => {
-    ClickActionController.getAction().then(events => {
-        res.json(events);
+clickActionRouter.get('/', (req, res) => {
+    ClickActionController.getAction().then(actions => {
+        res.json(actions);
     });
 });
 
@@ -41,9 +47,9 @@ eventsRouter.get('/', (req, res) => {
  * /actions:
  *  post:
  *      tags:
- *      - create_event
- *      summary: add event time and date
- *      description: add event time, date and user id of create-event action
+ *      - admin-portal
+ *      summary: record admin-portal action
+ *      description: record event time, date and user id of admin-portal action
  *      parameters:
  *      - in: body
  *        name: action_data
@@ -54,15 +60,28 @@ eventsRouter.get('/', (req, res) => {
  *              description: ok
  */
 
-eventsRouter.post('/', (req, res) => {
+clickActionRouter.post('/', (req, res) => {
     ClickActionController.addAction(req).then(response => {
         res.json(response);
     });
 });
-
-
-
-
+/**
+ * @swagger
+ * /actions/users:
+ *  get:
+ *      tags:
+ *      - admin-portal
+ *      summary: get list of userId and their actions
+ *      description: get list of userId and their actions
+ *      responses:
+ *          200:
+ *              description: ok
+ */
+clickActionRouter.get('/users', (req, res) => {
+    ClickActionController.getUsersWithActions().then(action_user => {
+        res.json(action_user);
+    });
+});
 /*
 // trial
 /!**
@@ -94,4 +113,4 @@ eventsRouter.post('/:id/:coordinates', (req, res) => {
     });
 });*/
 
-export default eventsRouter;
+export default clickActionRouter;
