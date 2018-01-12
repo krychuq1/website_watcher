@@ -11,7 +11,12 @@ class ClickActionController{
     getAction() {
         return ClickActionModel.find();
     }
-    updateCoordinates(id, coord){}
+    getUsersWithActions(){
+        return ClickActionModel.find().populate('users').exec(function (err, action) {
+            if (err) return handleError(err);
+            console.log('The action user_id is %s', action.user_id);
+        });
+    }
 }
 const  clickActionController = new ClickActionController();
 export default clickActionController;

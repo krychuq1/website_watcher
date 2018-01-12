@@ -18,7 +18,11 @@ class ClickActionModel{
             user_id: {
                 type: String
             },
+            action_name: {
+                type: String
+            },
             startTime: {
+
                 type: String
             }
 
