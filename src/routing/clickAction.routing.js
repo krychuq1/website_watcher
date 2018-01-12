@@ -25,7 +25,7 @@ let eventsRouter = express.Router();
  *      tags:
  *      - create_event
  *      summary: get all events
- *      description: call to retrieve all users
+ *      description: call to retrieve all log data of create-event action
  *      responses:
  *          200:
  *              description: ok
@@ -43,10 +43,10 @@ eventsRouter.get('/', (req, res) => {
  *      tags:
  *      - create_event
  *      summary: add event time and date
- *      description: add event time and date of create new event
+ *      description: add event time, date and user id of create-event action
  *      parameters:
  *      - in: body
- *        name: event
+ *        name: action_data
  *        schema:
  *          $ref: '#/definitions/Action'
  *      responses:

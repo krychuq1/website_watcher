@@ -2,7 +2,7 @@ import ClickActionModel from '../model/clickActionModel'
 class ClickActionController{
     constructor(){}
 
-    addAction(event){
+    addAction(clickActionEvent){
         let clickActionObj = new ClickActionModel(clickActionEvent);
         return clickActionObj.save().then(saved => {
             return saved;

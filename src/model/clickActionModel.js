@@ -15,13 +15,12 @@ class ClickActionModel{
             id: {
                 type: String
             },
+            user_id: {
+                type: String
+            },
             startTime: {
                 type: String
             }
-           /* location:{
-                type: [Number],  // [<longitude>, <latitude>]
-                index: '2d'      // create the geospatial index
-            }*/
 
         }, {versionKey: false})
     }
