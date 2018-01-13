@@ -21,7 +21,9 @@ class EventModel{
                 coordinates: []
             }
 
-        }, {versionKey: false})
+        }, {versionKey: false});
+
+        this.eventSchema.index({'location' : "2dsphere"})
     }
 
 }
