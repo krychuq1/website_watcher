@@ -137,4 +137,30 @@ eventRouter.delete('/:id', (req, res) => {
     })
 });
 
+/**
+ * @swagger
+ * /events/restoreevents:
+ *  post:
+ *      tags:
+ *      - event
+ *      summary: restore all of the events
+ *      description: restore all of the events
+ *      parameters:
+ *      - in: body
+ *        name: events
+ *        schema:
+ *          type: array
+ *      responses:
+ *          200:
+ *              description: ok
+ */
+eventRouter.post('/restoreevents', (req, res) => {
+    EventController.restoreEvents(req.body).then(saved => {
+        res.json(saved);
+    }).catch(err => {
+        console.log(err);
+    })
+});
+
+
 export default eventRouter;
