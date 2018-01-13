@@ -1,20 +1,25 @@
-import ClickActionModel from '../model/clickActionModel'
+import ClickActionModel from '../model/clickActionModel';
+import User from '../model/userModel';
 class ClickActionController{
     constructor(){}
 
     addAction(clickActionEvent){
-        let clickActionObj = new ClickActionModel(clickActionEvent);
-        return clickActionObj.save().then(saved => {
-            return saved;
-        });
+            let clickActionObj = new ClickActionModel(clickActionEvent);
+            clickActionObj.user = clickActionEvent.userId;
+            return clickActionObj.save(clickActionEvent).then(saved => {
+                return saved;
+            });
     }
     getAction() {
         return ClickActionModel.find();
     }
     getUsersWithActions(){
-        return ClickActionModel.find().populate('users').exec(function (err, action) {
-            if (err) return handleError(err);
-        });
+        return ClickActionModel.find()
+            .populate('user')
+            .exec()
+            .then(e => {
+                return e
+            })
     }
 }
 const  clickActionController = new ClickActionController();

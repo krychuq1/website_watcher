@@ -1,4 +1,5 @@
 import db from '../database/databaseConnection';
+import clickActionModel from './clickActionModel';
 
 
 class UserModel{
