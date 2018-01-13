@@ -44,7 +44,7 @@ clickActionRouter.get('/', (req, res) => {
 
 /**
  * @swagger
- * /actions:
+ * /actions/:
  *  post:
  *      tags:
  *      - admin-portal
@@ -52,7 +52,7 @@ clickActionRouter.get('/', (req, res) => {
  *      description: record event time, date and user id of admin-portal action
  *      parameters:
  *      - in: body
- *        name: action_data
+ *        name: clickAction
  *        schema:
  *          $ref: '#/definitions/Action'
  *      responses:
@@ -61,7 +61,8 @@ clickActionRouter.get('/', (req, res) => {
  */
 
 clickActionRouter.post('/', (req, res) => {
-    ClickActionController.addAction(req).then(response => {
+    console.log(req.body);
+    ClickActionController.addAction(req.body).then(response => {
         res.json(response);
     });
 });
