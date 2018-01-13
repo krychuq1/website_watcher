@@ -1,6 +1,5 @@
 import db from '../database/databaseConnection';
 
-
 class ClickActionModel{
 
     constructor(){
@@ -12,19 +11,13 @@ class ClickActionModel{
 
     createSchema(){
         this.clickActionSchema = new this.Schema({
-            id: {
-                type: String
-            },
-            user_id: {
-                type: String
-            },
             action_name: {
                 type: String
             },
             startTime: {
-
                 type: String
-            }
+            },
+            user:{ type: this.Schema.Types.ObjectId, ref: 'user' } //reference to the actual collection in db
 
         }, {versionKey: false})
     }

@@ -61,11 +61,13 @@ clickActionRouter.get('/', (req, res) => {
  */
 
 clickActionRouter.post('/', (req, res) => {
-    console.log(req.body);
-    ClickActionController.addAction(req.body).then(response => {
+    console.log('post action: ', req.body);
+    ClickActionController.addAction(req.body)/*.then(response => {
         res.json(response);
-    });
+    });*/
 });
+
+//to be made
 /**
  * @swagger
  * /actions/users:
@@ -83,35 +85,6 @@ clickActionRouter.get('/users', (req, res) => {
         res.json(action_user);
     });
 });
-/*
-// trial
-/!**
- * @swagger
- * /events/{id}/{coordinates}:
- *  post:
- *      tags:
- *      - event
- *      summary: add event
- *      description: register event id and coordinates
- *      parameters:
- *      - in: path
- *        name: id
- *        schema:
- *          type: integer
- *      - in: path
- *        name: coordinates
- *        schema:
- *          type: array
- *          items: integer
- *      responses:
- *          200:
- *              description: ok
- *!/
-eventsRouter.post('/:id/:coordinates', (req, res) => {
-    console.log('Parameter is: ', req.params.id, 'Location is: ', req.params.coordinates);
-    EventsController.addEvent(req.params.id, req.params.coordinates).then(response => {
-        res.json(response);
-    });
-});*/
+
 
 export default clickActionRouter;
