@@ -70,6 +70,9 @@ class EventController{
     deleteEventByEventId(id){
         return EventModel.findOneAndRemove({eventId: id});
     }
+    restoreEvents(events){
+        return EventModel.create(events);
+    }
 
 }
 const  eventController = new EventController();
