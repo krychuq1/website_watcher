@@ -1,0 +1,46 @@
+[
+  {
+    "_id": "5a5a3281e033bf3f44b0123a",
+    "eventId": 8,
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        55.666801199999995,
+        12.602779199999999
+      ]
+    }
+  },
+  {
+    "_id": "5a5a33cde033bf3f44b0123d",
+    "eventId": 9,
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        55.6668121,
+        12.6028056
+      ]
+    }
+  },
+  {
+    "_id": "5a5a3514e033bf3f44b01240",
+    "eventId": 10,
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        55.66676390000001,
+        12.6028082
+      ]
+    }
+  },
+  {
+    "_id": "5a5a3614e033bf3f44b01243",
+    "eventId": 11,
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        55.666766100000004,
+        12.602770900000001
+      ]
+    }
+  }
+]

@@ -24,21 +24,21 @@
   },
   "homepage": "https://github.com/krychuq1/node_mongo#readme",
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.2",
+    "geopoint": "^1.0.1",
+    "google-distance": "^1.0.1",
     "mongodb": "^2.2.33",
     "mongoose": "^4.13.2",
     "mongoose-geojson-schema": "^2.1.2",
     "nodemon": "^1.12.1",
+    "rimraf": "^2.6.2",
     "swagger-jsdoc": "^1.9.7",
-    "swagger-ui-express": "^2.0.11",
-    "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "rimraf": "^2.6.2"
+    "swagger-ui-express": "^2.0.11"
   },
-  "devDependencies": {
-
-  }
+  "devDependencies": {}
 }

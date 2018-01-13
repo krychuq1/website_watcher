@@ -1,6 +1,7 @@
 import express from 'express';
 import EventController from '../controller/eventController';
-
+import GeoPoint from 'geopoint';
+import GoogleDistance from 'google-distance';
 /**
  * @swagger
  * definitions:
@@ -80,6 +81,36 @@ eventRouter.delete('/', (req, res) => {
     EventController.deleteAllEvents().then(deleted => {
         res.json(deleted);
     })
+});
+
+/**
+ * @swagger
+ * /events/distance/{lan}/{lng}:
+ *  get:
+ *      tags:
+ *      - event
+ *      summary: get all events and distance
+ *      description: this call will show distance to the events based on user location
+ *      parameters:
+ *      - in: path
+ *        name: lan
+ *        schema:
+ *          type: number
+ *      - in: path
+ *        name: lng
+ *        schema:
+ *          type: number
+ *      responses:
+ *          200:
+ *              description: ok
+ */
+eventRouter.get('/distance/:lan/:lng', (req, res) => {
+    let location = req.params.lan +','+req.params.lng;
+    EventController.getDistance(location).then(distance => {
+        res.json(distance);
+
+    });
+
 });
 /**
  * @swagger

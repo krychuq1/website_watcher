@@ -6,10 +6,10 @@ import cors from 'cors';
 
 let swagger = new Swagger();
 let app = express();
-let port = process.env.PORT || 9992;
+let port = process.env.PORT || 9994;
 
 app.use(cors());
-app.use( bodyParser.json() );
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
