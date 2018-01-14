@@ -1,5 +1,7 @@
 import ClickActionController from "../controller/clickActionController";
 import express from "express";
+import UserController from "../controller/userController";
+import usersRouter from "./users.routing";
 
 /**
  * @swagger
@@ -49,7 +51,7 @@ clickActionRouter.get('/', (req, res) => {
  *      tags:
  *      - admin-portal
  *      summary: record admin-portal action
- *      description: record event time, date and user id of admin-portal action
+ *      description: record time, date and user id of admin-portal action
  *      parameters:
  *      - in: body
  *        name: clickAction
@@ -84,6 +86,48 @@ clickActionRouter.get('/users', (req, res) => {
     ClickActionController.getUsersWithActions().then(action_user => {
         res.json(action_user);
     });
+});
+
+/**
+ * @swagger
+ * /actions/{userId}:
+ *  delete:
+ *      tags:
+ *      - admin-portal
+ *      summary: delete admin-portal actions
+ *      description: delete all admin-portal actions info based on user id
+ *      parameters:
+ *      - in: path
+ *        name: userId
+ *        schema:
+ *          type: string
+ *      responses:
+ *          200:
+ *              description: ok
+ */
+clickActionRouter.delete('/:userId', (req, res) => {
+    console.log('ID IS: ', req.params.userId);
+    ClickActionController.deleteAction(req.params.userId).then(response => {
+        res.send(response);
+    })
+});
+
+/**
+ * @swagger
+ * /actions:
+ *  delete:
+ *      tags:
+ *      - admin-portal
+ *      summary: delete admin-portal actions
+ *      description: delete all admin-portal actions info
+ *      responses:
+ *          200:
+ *              description: ok
+ */
+clickActionRouter.delete('/', (req, res) => {
+    ClickActionController.deleteAllActions().then(deleted => {
+        res.json(deleted);
+    })
 });
 
 
