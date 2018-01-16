@@ -14,10 +14,13 @@ class ClickActionModel{
             action_name: {
                 type: String
             },
+            mysql_eventId: {
+                type: String
+            },
             startTime: {
                 type: String
             },
-            user:{ type: this.Schema.Types.ObjectId, ref: 'user' } //reference to the actual collection in db
+            user:{ type: this.Schema.Types.ObjectId, ref: 'user' , index: true} //reference to the actual collection in db
 
         }, {versionKey: false})
     }
