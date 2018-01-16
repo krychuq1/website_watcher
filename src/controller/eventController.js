@@ -33,9 +33,12 @@ class EventController{
                     //loop through all of events
                     allEvent.forEach(obj => {
                         //location of the event
-                        let eventLocation = obj.location.coordinates[0] + ',' + obj.location.coordinates[1];
-                        //push promise to array
-                        promises.push(this.getGoogleDistance(location, eventLocation, eventsWithDistance, obj))
+                        if(obj.location){
+                            let eventLocation = obj.location.coordinates[0] + ',' + obj.location.coordinates[1];
+                            //push promise to array
+                            promises.push(this.getGoogleDistance(location, eventLocation, eventsWithDistance, obj))
+                        }
+
                     });
                     Promise.all(promises).then(completed => {
                         console.log("we are done", eventsWithDistance);
