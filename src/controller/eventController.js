@@ -22,15 +22,19 @@ class EventController{
         return EventModel.find();
     }
     getDistance(location){
-
-            // this.getGoogleDistance();
-
+            //get all of events stored in mongo
             return EventModel.find().then(allEvent => {
+                //create a new promise
                 return new Promise((resolve, reject) => {
+                    //array of promises
                     let promises = [];
+                    //init empty array
                     let eventsWithDistance = [];
+                    //loop through all of events
                     allEvent.forEach(obj => {
+                        //location of the event
                         let eventLocation = obj.location.coordinates[0] + ',' + obj.location.coordinates[1];
+                        //push promise to array
                         promises.push(this.getGoogleDistance(location, eventLocation, eventsWithDistance, obj))
                     });
                     Promise.all(promises).then(completed => {
